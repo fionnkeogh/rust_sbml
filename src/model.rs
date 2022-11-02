@@ -249,7 +249,7 @@ impl Model {
             .list_of_reactions
             .reactions
             .iter()
-            .map(|n| (n.id.to_owned(), n.to_owned()))
+            .map(|n| (n.id.as_ref().unwrap().to_owned(), n.to_owned()))
             .collect();
 
         // Constraints

@@ -36,7 +36,7 @@ pub struct Compartment {
     pub sbo_term: Option<String>,
     pub spatial_dimensions: Option<f64>,
     pub size: Option<f64>,
-    pub constant: bool,
+    pub constant: Option<bool>,
 }
 
 /// A species in SBML refers to a pool of entities that
@@ -81,9 +81,9 @@ pub struct Species {
     pub initial_concentration: Option<f64>,
     pub initial_amount: Option<f64>,
     pub substance_units: Option<UnitSIdRef>,
-    pub has_only_substance_units: bool,
-    pub boundary_condition: bool,
-    pub constant: bool,
+    pub has_only_substance_units: Option<bool>,
+    pub boundary_condition: Option<bool>,
+    pub constant: Option<bool>,
     pub conversion_factor: Option<String>,
     pub annotation: Option<Annotation>,
 }
@@ -112,7 +112,7 @@ pub struct Parameter {
     pub id: String,
     pub value: Option<f64>,
     pub units: Option<UnitSIdRef>,
-    pub constant: bool,
+    pub constant: Option<bool>,
 }
 
 /// InitialAssigments provide a way to declare initial values that must be
@@ -179,7 +179,7 @@ pub struct InitialAssignment {
 #[derive(Deserialize, Serialize, Debug, PartialEq, Clone)]
 pub struct SpeciesReference {
     pub species: String,
-    pub constant: bool,
+    pub constant: Option<bool>,
     #[serde(rename = "sboTerm", default)]
     pub sbo_term: Option<String>,
     pub id: Option<String>,
@@ -262,7 +262,7 @@ pub struct KineticLaw {
 #[derive(Debug, Deserialize, Serialize, PartialEq, Clone, Default)]
 #[serde(rename_all = "camelCase")]
 pub struct Reaction {
-    pub id: String,
+    pub id: Option<String>,
     #[serde(default)]
     pub list_of_reactants: ListOfSpeciesReferences,
     #[serde(default)]

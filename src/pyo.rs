@@ -33,7 +33,7 @@ impl Compartment {
 impl Reaction {
     #[getter]
     fn id(&self) -> &str {
-        self.id.as_str()
+        self.id.as_ref().unwrap().as_str()
     }
     #[getter]
     fn name(&self) -> &str {
@@ -79,7 +79,7 @@ impl Parameter {
         self.value
     }
     fn getConstant(&self) -> bool {
-        self.constant
+        self.constant.unwrap()
     }
 }
 
