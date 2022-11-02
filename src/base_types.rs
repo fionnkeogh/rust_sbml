@@ -262,7 +262,7 @@ pub struct KineticLaw {
 #[derive(Debug, Deserialize, Serialize, PartialEq, Clone, Default)]
 #[serde(rename_all = "camelCase")]
 pub struct Reaction {
-    pub id: Option<String>,
+    pub id: String,
     #[serde(default)]
     pub list_of_reactants: ListOfSpeciesReferences,
     #[serde(default)]
