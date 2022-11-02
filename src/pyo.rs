@@ -33,7 +33,7 @@ impl Compartment {
 impl Reaction {
     #[getter]
     fn id(&self) -> &str {
-        self.id.as_ref().unwrap().as_str()
+        self.id.as_str()
     }
     #[getter]
     fn name(&self) -> &str {
